@@ -1,0 +1,65 @@
+{
+  "id": "1912487",
+  "name": "shopping-test",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "953311",
+      "name": "返回",
+      "font_class": "fanhui",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "1133808",
+      "name": "店铺",
+      "font_class": "dianpu",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "869367",
+      "name": "客服",
+      "font_class": "kefu",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "5635064",
+      "name": "star",
+      "font_class": "star",
+      "unicode": "f2d3",
+      "unicode_decimal": 62163
+    },
+    {
+      "icon_id": "911011",
+      "name": "center",
+      "font_class": "center",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "8040199",
+      "name": "ts-图标_categoryDefault",
+      "font_class": "ts-tubiao_categoryDefault",
+      "unicode": "e71a",
+      "unicode_decimal": 59162
+    },
+    {
+      "icon_id": "10104390",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e6ea",
+      "unicode_decimal": 59114
+    },
+    {
+      "icon_id": "14507969",
+      "name": "Cart",
+      "font_class": "Cart",
+      "unicode": "e6df",
+      "unicode_decimal": 59103
+    }
+  ]
+}

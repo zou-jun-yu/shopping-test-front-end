@@ -1,0 +1,22 @@
+{
+  "name": "shopping",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "export": "nuxt export",
+    "serve": "nuxt serve"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/proxy": "^2.0.0",
+    "mint-ui": "^2.2.13",
+    "nuxt": "^2.13.0"
+  },
+  "devDependencies": {
+    "sass": "^1.26.9",
+    "sass-loader": "^8.0.2"
+  }
+}

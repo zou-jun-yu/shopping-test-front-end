@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            display: flex;
+            width: 500px;
+            background-color: red;
+            overflow: auto;
+        }
+        
+        #outer span {
+            text-align: center;
+            line-height: 50px;
+            width: 400px;
+        }
+        
+        #inner1 {
+            background-color: blue;
+        }
+        
+        #inner2 {
+            background-color: gray;
+        }
+        
+        #inner3 {
+            background-color: yellowgreen;
+        }
+        
+        input {
+            width: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="checkbox">
+    <div id=outer>
+        <span id="inner1">11111111111111111111</span>
+        <span id="inner2">22222222222222222222</span>
+        <span id="inner3">33333333333333333333</span>
+    </div>
+</body>
+
+</html>
