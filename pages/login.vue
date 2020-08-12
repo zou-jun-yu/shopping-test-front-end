@@ -41,7 +41,7 @@ export default {
         //     this.$router.go(-1);
         //   }
         // });
-        await this.changeAuthStatus({
+        this.changeAuthStatus({
           authenticated: true,
           username: result.data.username
         });

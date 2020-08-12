@@ -18,7 +18,7 @@ export default {
         username: result.data.username
       });
     } else {
-      await this.resetState();
+      this.resetState();
     }
   },
   methods: {

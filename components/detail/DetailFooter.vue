@@ -37,7 +37,7 @@ export default {
         this.$router.push("/login");
         return;
       }
-      addTocart(this.goodsDetail);
+      this.addTocart(this.goodsDetail);
     },
     buyNow() {
       if (!this.authenticated) {

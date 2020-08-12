@@ -20,7 +20,7 @@ export default {
       const result = await reqLogout();
       Toast(result.msg);
       if (result.status === 0) {
-        await this.changeAuthStatus({ authenticated: false, username: "" });
+        this.changeAuthStatus({ authenticated: false, username: "" });
         this.$router.push("/login");
       }
     },
