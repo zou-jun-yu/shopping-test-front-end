@@ -99,6 +99,7 @@ export const getters = {
   }
 };
 
+//每次修改购物车后都要调用reqUpdateCart向服务器发起请求，以访刷新后丢失购物车数据。唉，要是有个像后端语言中的面向切面编程（AOP）的用法就好了。
 export const actions = {
   addCount({ commit, state }, goodsId) {
     commit("addCount", goodsId);
