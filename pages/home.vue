@@ -35,6 +35,7 @@ import { reqGetGoodsDetail, reqGetCategoryById } from "~/api";
 export default {
   name: "Home",
   async asyncData() {
+    //在首页中要展示的分类或者商品的id
     const everydayDataIds = [
       "5f2f9496dc04dd1688cf09cb",
       "5f2f9559dc04dd1688cf09cc",
