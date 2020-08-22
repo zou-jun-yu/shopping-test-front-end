@@ -17,10 +17,14 @@ export const reqFindPassword = ({ password, email, verify }) =>
 
 export const reqGetCategoriesLevel1 = ({ url }) => ajax(url, { parentId: 0 });
 export const reqGetCategoryById = ({ url, _id }) => ajax(url, { _id });
+export const reqGetRandomCategoriesLevel3 = ({ url, categoryNumber }) =>
+  ajax(url, { categoryNumber });
 
 export const reqGetCategoriesLevel2Andlevel3 = ({ url, parentId }) =>
   ajax(url, { parentId });
 
+export const reqGetRandomGoods = ({ url, goodsNumber }) =>
+  ajax(url, { goodsNumber });
 export const reqGetGoodsList = ({ url, categoryId, pageSize, pageNumber }) =>
   ajax(url, { categoryId, pageSize, pageNumber });
 
