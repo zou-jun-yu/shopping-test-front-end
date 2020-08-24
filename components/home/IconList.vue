@@ -7,7 +7,9 @@
         @click="$router.push('/goodsList/' + icon._id)"
       >
         <img :src="$imagesDir + icon.categoryImage" :alt="icon.categoryName" />
-        <h4>{{ icon.categoryName }}</h4>
+        <h4>
+          {{ icon.categoryName.substr(0, Math.round(Math.random() + 2)) }}
+        </h4>
       </li>
     </ul>
   </div>
@@ -29,7 +31,8 @@ export default {
 .icon-list {
   width: 100%;
   overflow-x: auto;
-  background-color: white;
+  margin-top: 6px;
+  background-color: #fff;
   ul {
     display: flex;
     flex-direction: column;
@@ -42,10 +45,13 @@ export default {
       text-align: center;
       margin: 0 10px;
       img {
-        width: 55px;
-        height: 55px;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
-        background-color: burlywood;
+        border: 2px solid #dc38d5;
+      }
+      h4{
+        font-size: 14px;
       }
     }
   }

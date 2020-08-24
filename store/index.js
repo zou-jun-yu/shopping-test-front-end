@@ -94,6 +94,16 @@ export const getters = {
     }
     return totle;
   },
+  totleGoodsSelected(state){
+    let number = 0;
+    const { cart } = state;
+    for (var prop in cart) {
+      if (cart[prop].checked) {
+        number += cart[prop].count;
+      }
+    }
+    return number
+  },
   isAllChecked(state) {
     return Object.keys(state.cart).every(prop => state.cart[prop].checked);
   }

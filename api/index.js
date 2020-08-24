@@ -25,8 +25,8 @@ export const reqGetCategoriesLevel2Andlevel3 = ({ url, parentId }) =>
 
 export const reqGetRandomGoods = ({ url, goodsNumber }) =>
   ajax(url, { goodsNumber });
-export const reqGetGoodsList = ({ url, categoryId, pageSize, pageNumber }) =>
-  ajax(url, { categoryId, pageSize, pageNumber });
+export const reqGetGoodsList = ({ url, categoryId, pageSize, pageNumber, sortField, isAscending }) =>
+  ajax(url, { categoryId, pageSize, pageNumber, sortField, isAscending });
 
 export const reqGetGoodsDetail = ({ url, _id }) => ajax(url, { _id });
 
@@ -35,5 +35,5 @@ export const reqGetCart = () => ajax("/api2/shopping/getCart");
 export const reqModifyCart = cartInfo =>
   ajax("/api2/shopping/modifyCart", { cartInfo }, "POST");
 
-export const reqSearchGoods = ({ url, keyWord, pageSize, pageNumber }) =>
-  ajax(url, { keyWord, pageSize, pageNumber });
+export const reqSearchGoods = ({ url, keyWord, pageSize, pageNumber, sortField, isAscending }) =>
+  ajax(url, { keyWord, pageSize, pageNumber, sortField, isAscending });

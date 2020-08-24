@@ -1,5 +1,5 @@
 <template>
-  <div id="category">
+  <div class="category">
     <Search />
     <div>
       <Sidebar
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#category {
+.category {
   flex-grow: 1;
   overflow: hidden;
   display: flex;

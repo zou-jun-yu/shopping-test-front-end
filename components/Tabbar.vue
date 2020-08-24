@@ -10,6 +10,7 @@
     </nuxt-link>
     <nuxt-link to="/cart" tag="li" active-class="active">
       <i class="iconfont icon-Cart"></i>
+      <em v-if="authenticated&&totleGoodsSelected">{{ totleGoodsSelected }}</em>
       <span>购物车</span>
     </nuxt-link>
     <nuxt-link to="/center" tag="li" active-class="active">
@@ -20,8 +21,13 @@
 </template>
 
 <script>
+import { mapGetters, mapState } from "vuex";
 export default {
-  name: "Tabbar"
+  name: "Tabbar",
+  computed: {
+    ...mapState(["authenticated"]),
+    ...mapGetters(["totleGoodsSelected"])
+  }
 };
 </script>
 
@@ -30,7 +36,7 @@ export default {
   flex: none;
   display: flex;
   justify-content: space-around;
-  padding: 5px;;
+  padding: 5px;
   height: 55px;
   text-align: center;
   background-color: #00a2e8;
@@ -44,6 +50,19 @@ export default {
     }
     .iconfont {
       font-size: 20px;
+    }
+    &:nth-of-type(3) {
+      position: relative;
+      em {
+        position: absolute;
+        font-style: normal;
+        right: 28px;
+        top: -3px;
+        border-radius: 6px;
+        font-size: 6px;
+        padding: 2px 4px;
+        background-color: red;
+      }
     }
     span {
       font-size: 12px;

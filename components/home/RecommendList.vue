@@ -10,9 +10,14 @@
         <img
           :src="$imagesDir + goodsDetail.goodsImages[0]"
           :alt="goodsDetail.goodsDescription"
-          :style="{ width: '110px', height }"
+          :style="{ width: '80px', height: '80px' }"
         />
-        <h4>{{ goodsDetail.goodsName }}</h4>
+        <h4>
+          {{
+            goodsDetail.goodsName.substr(0, Math.round(Math.random() * 2 + 3))
+          }}
+        </h4>
+        <p>￥{{goodsDetail.nowPrice}}</p>
       </li>
     </ul>
   </div>
@@ -29,10 +34,6 @@ export default {
     title: {
       type: String,
       required: true
-    },
-    height: {
-      type: String,
-      required: true
     }
   }
 };
@@ -40,10 +41,12 @@ export default {
 
 <style lang="scss" scoped>
 .recommendList {
-  background-color: white;
-  margin-top: 10px;
+  margin: 15px 5px;
+  border-radius: 10px;
+  background-color: #fff;
   h3 {
-    padding: 0 3px;
+    padding: 5px 3px;
+    color: #ca5155;
   }
   ul {
     display: flex;
@@ -53,6 +56,10 @@ export default {
       flex-shrink: 0;
       padding: 0 10px;
       text-align: center;
+      font-size: 14px;
+      p{
+        color: red;
+      }
     }
   }
 }

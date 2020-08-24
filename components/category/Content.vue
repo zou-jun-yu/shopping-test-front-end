@@ -40,7 +40,7 @@ export default {
   margin: 10px;
   background-color: #fff;
   dl {
-    margin-top: 20px;
+    margin-top: 10px;
     border-bottom: 1px solid #e7e7e7;
     h3 {
       padding-left: 20px;

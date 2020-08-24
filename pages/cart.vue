@@ -27,7 +27,9 @@
               :value="cartGoodsItem.count + ''"
               @change="setGoodsCount(key, $event)"
             />
-            <button class="step" @click="addCount(key)">+</button>
+            <button class="step" @click="addGoodsCount(key)">
+              +
+            </button>
           </template>
         </GoodsItem>
       </div>
@@ -39,6 +41,9 @@
         <button>去结算</button>
       </div>
       <p v-else>您的购物车空空如也~~~</p>
+      <transition name="bounce" @after-leave="afterLeave">
+        <span v-if="show" class="dot"></span>
+      </transition>
     </div>
     <div v-else><span>请先</span><nuxt-link to="/login">登录</nuxt-link></div>
   </div>
@@ -51,6 +56,11 @@ import GoodsItem from "@/components/goodsList/GoodsItem";
 import { reqGetGoodsDetail } from "@/api";
 export default {
   name: "Cart",
+  data() {
+    return {
+      show: true
+    };
+  },
   methods: {
     setGoodsCount(cartGoodsItemId, event) {
       this.$store.dispatch("setGoodsCount", {
@@ -68,7 +78,14 @@ export default {
       addCount: "addCount",
       reduceCount: "reduceCount",
       toggleCheckAll: "toggleCheckAll"
-    })
+    }),
+    addGoodsCount(goodsId) {
+      this.show = false;
+      this.addCount(goodsId);
+    },
+    afterLeave(el) {
+      this.show = true;
+    }
   },
   computed: {
     ...mapState({
@@ -99,6 +116,11 @@ export default {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    .dot {
+      position: fixed;
+      border-radius: 50%;
+      background-color: red;
+    }
     h3 {
       text-align: center;
       line-height: 40px;
@@ -137,6 +159,7 @@ export default {
     .total {
       flex: none;
       line-height: 50px;
+      background-color: rgba(200, 200, 200, 0.3);
       #check-all {
         margin: 16px;
       }
@@ -163,6 +186,57 @@ export default {
       font-size: 20px;
       text-align: center;
     }
+  }
+}
+
+.bounce-enter-active {
+  animation: bounce-in 0s;
+}
+.bounce-leave-active {
+  animation: bounce-in 0.3s reverse;
+}
+@keyframes bounce-in {
+  0% {
+    left: 220px;
+    top: 600px;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+  }
+  20% {
+    left: 160px;
+    top: 520px;
+    opacity: 1;
+    width: 20px;
+    height: 20px;
+  }
+  40% {
+    left: 70px;
+    top: 400px;
+    opacity: 1;
+    width: 20px;
+    height: 20px;
+  }
+  60% {
+    left: 70px;
+    top: 300px;
+    opacity: 1;
+    width: 20px;
+    height: 20px;
+  }
+  80% {
+    left: 175px;
+    top: 170px;
+    opacity: 1;
+    width: 20px;
+    height: 20px;
+  }
+  100% {
+    left: 360px;
+    top: 70px;
+    opacity: 0;
+    width: 20px;
+    height: 20px;
   }
 }
 </style>

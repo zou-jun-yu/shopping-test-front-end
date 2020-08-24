@@ -33,20 +33,20 @@ export default {
 header {
   flex: none;
   display: flex;
-  height: 50px;
+  height: 35px;
   position: relative;
   background: #00a2e8;
   text-align: center;
-  color: white;
-  line-height: 50px;
+  color: black;
+  line-height: 40px;
   h1 {
-    font-size: 30px;
+    font-size: 22px;
     flex-grow: 1;
   }
   span {
     position: absolute;
     right: 15px;
-    line-height: 50px;
+    line-height: 40px;
     z-index: 999;
   }
 }
