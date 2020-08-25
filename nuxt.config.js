@@ -30,6 +30,13 @@ export default {
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       { rel: "stylesheet", href: "/css/iconfont/iconfont.css" }
+    ],
+    script: [
+      {
+        type: "application/javascript",
+        src: "/js/fastclick.js"
+      },
+      { type: "application/javascript", src: "/js/initFastclick.js" }
     ]
   },
   /*

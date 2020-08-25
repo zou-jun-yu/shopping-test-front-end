@@ -7,8 +7,8 @@
           class="iconfont cart"
           @click="$router.push(authenticated ? '/cart' : '/login')"
           >&#xe6df;
-          <em v-if="authenticated && totleGoodsSelected">{{
-            totleGoodsSelected
+          <em v-if="authenticated && totalGoodsSelected">{{
+            totalGoodsSelected
           }}</em></i
         >
         <mt-swipe-item
@@ -79,6 +79,8 @@ import axios from "axios";
 import DetailFooter from "@/components/detail/DetailFooter";
 import { reqGetGoodsDetail } from "@/api";
 import { mapGetters, mapState } from "vuex";
+
+//商品详情页
 export default {
   layout: "detailTemplate",
   name: "Detail",
@@ -93,7 +95,7 @@ export default {
   },
   computed: {
     ...mapState(["authenticated"]),
-    ...mapGetters(["totleGoodsSelected"])
+    ...mapGetters(["totalGoodsSelected"])
   },
   components: {
     DetailFooter

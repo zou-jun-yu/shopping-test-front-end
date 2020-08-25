@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+//封装ajax请求
 export default function ajax(url, params = {}, method = 'GET') {
     return new Promise((resolve, reject) => {
         if (method === 'GET') {

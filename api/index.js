@@ -1,5 +1,7 @@
 import ajax from "./ajax";
 
+//请求接口函数
+//用户相关
 export const reqLogin = ({ username, password }) =>
   ajax("/api2/users/login", { username, password }, "POST");
 
@@ -15,6 +17,7 @@ export const reqGetVerify = email => ajax("/api2/users/verify", { email });
 export const reqFindPassword = ({ password, email, verify }) =>
   ajax("/api2/users/findPassword", { password, email, verify }, "POST");
 
+//商品分类
 export const reqGetCategoriesLevel1 = ({ url }) => ajax(url, { parentId: 0 });
 export const reqGetCategoryById = ({ url, _id }) => ajax(url, { _id });
 export const reqGetRandomCategoriesLevel3 = ({ url, categoryNumber }) =>
@@ -23,17 +26,31 @@ export const reqGetRandomCategoriesLevel3 = ({ url, categoryNumber }) =>
 export const reqGetCategoriesLevel2Andlevel3 = ({ url, parentId }) =>
   ajax(url, { parentId });
 
+//商品
 export const reqGetRandomGoods = ({ url, goodsNumber }) =>
   ajax(url, { goodsNumber });
-export const reqGetGoodsList = ({ url, categoryId, pageSize, pageNumber, sortField, isAscending }) =>
-  ajax(url, { categoryId, pageSize, pageNumber, sortField, isAscending });
+export const reqGetGoodsList = ({
+  url,
+  categoryId,
+  keyWord,
+  pageSize,
+  pageNumber,
+  sortField,
+  isAscending
+}) =>
+  ajax(url, {
+    categoryId,
+    pageSize,
+    pageNumber,
+    keyWord,
+    sortField,
+    isAscending
+  });
 
 export const reqGetGoodsDetail = ({ url, _id }) => ajax(url, { _id });
 
+//购物车
 export const reqGetCart = () => ajax("/api2/shopping/getCart");
 
 export const reqModifyCart = cartInfo =>
   ajax("/api2/shopping/modifyCart", { cartInfo }, "POST");
-
-export const reqSearchGoods = ({ url, keyWord, pageSize, pageNumber, sortField, isAscending }) =>
-  ajax(url, { keyWord, pageSize, pageNumber, sortField, isAscending });

@@ -22,6 +22,7 @@
 </template>
 
 <script>
+//今日特卖做成一个组件
 export default {
   name: "TodaySales",
   props: {

@@ -10,7 +10,7 @@
     </nuxt-link>
     <nuxt-link to="/cart" tag="li" active-class="active">
       <i class="iconfont icon-Cart"></i>
-      <em v-if="authenticated&&totleGoodsSelected">{{ totleGoodsSelected }}</em>
+      <em v-if="authenticated&&totalGoodsSelected">{{ totalGoodsSelected }}</em>
       <span>购物车</span>
     </nuxt-link>
     <nuxt-link to="/center" tag="li" active-class="active">
@@ -22,11 +22,12 @@
 
 <script>
 import { mapGetters, mapState } from "vuex";
+//底部导航栏
 export default {
   name: "Tabbar",
   computed: {
     ...mapState(["authenticated"]),
-    ...mapGetters(["totleGoodsSelected"])
+    ...mapGetters(["totalGoodsSelected"])
   }
 };
 </script>

@@ -8,10 +8,10 @@
         <dd
           v-for="level3Category in level2Category.children"
           :key="level3Category._id"
-          @click="$router.push('/goodsList/'+level3Category._id)"
+          @click="$router.push('/goodsList/' + level3Category._id)"
         >
           <img
-            :src="$imagesDir+level3Category.categoryImage"
+            :src="$imagesDir + level3Category.categoryImage"
             :alt="level3Category.categoryName"
           />
           <h4>{{ level3Category.categoryName }}</h4>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+// 某个一级分类下的所有二级、三级分类展示区组件
 export default {
   name: "Content",
   props: {

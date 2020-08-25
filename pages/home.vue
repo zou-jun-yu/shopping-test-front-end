@@ -16,7 +16,7 @@
         </mt-swipe-item>
       </mt-swipe>
       <IconList :iconData="iconData" />
-      <RecommendList :dataSource="everydayData" title="精选好货" />
+      <RecommendList :dataSource="wellGoodsData" title="精选好货" />
       <RecommendList :dataSource="fashionData" title="当季流行" />
       <TodaySales :todaySalesData="todaySalesData" title="今日特卖" />
       <footer>
@@ -59,7 +59,7 @@ export default {
     const goodsResponse = await goodsPromise;
     const goodsList = goodsResponse.data.goodsList;
     return {
-      everydayData: goodsList.slice(0, 10),
+      wellGoodsData: goodsList.slice(0, 10),
       fashionData: goodsList.slice(10, 20),
       bannerData: goodsList.slice(20, 30),
       todaySalesData: goodsList.slice(30, 40),

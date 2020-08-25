@@ -13,6 +13,8 @@ import Header from "@/components/Header";
 import Tabbar from "@/components/Tabbar";
 import { mapActions, mapMutations, mapState } from "vuex";
 import { reqGetUser } from "~/api";
+
+//公共模板
 export default {
   name: "Default",
   components: {
@@ -22,6 +24,8 @@ export default {
   async mounted() {
     document.getElementById("templateDiv").style.height =
       document.documentElement.clientHeight + "px";
+
+    //一上来就获取用户信息，判断用户是否登录，并保存到vuex中。如果在这之前已经成功获取了用户信息则立即返回
     if (this.authenticated) return;
     const result = await reqGetUser();
     if (result.status === 0) {

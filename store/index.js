@@ -2,11 +2,13 @@ import Vue from "vue";
 import { reqModifyCart, reqGetCart } from "~/api";
 
 export const state = () => ({
+  //cart是购物车对象，属性是商品id，值是购物车商品条目（cart改为map数据结构可能会更好一些）
   cart: {},
   authenticated: false,
   username: ""
 });
 
+//只要客户修改了购物车，就使用这个函数向服务器发出请求，以防刷新浏览器后购物车数据就丢失了
 const reqUpdateCart = async state => {
   let cartInfo = {};
   for (let goodsId in state.cart) {
@@ -53,7 +55,7 @@ export const mutations = {
       [goods._id]: {
         count: 1,
         checked: true,
-        ...goods,
+        ...goods
       }
     };
   },
@@ -72,7 +74,7 @@ export const mutations = {
   initCart(state, cart) {
     state.cart = cart;
   },
-  changeAuthStatus(state, {authenticated,username}) {
+  changeAuthStatus(state, { authenticated, username }) {
     state.authenticated = authenticated;
     state.username = username;
   },
@@ -84,17 +86,17 @@ export const mutations = {
 };
 
 export const getters = {
-  totlePrice(state) {
-    let totle = 0;
+  totalPrice(state) {
+    let total = 0;
     const { cart } = state;
     for (var prop in cart) {
       if (cart[prop].checked) {
-        totle += cart[prop].count * cart[prop].nowPrice;
+        total += cart[prop].count * cart[prop].nowPrice;
       }
     }
-    return totle;
+    return total;
   },
-  totleGoodsSelected(state){
+  totalGoodsSelected(state) {
     let number = 0;
     const { cart } = state;
     for (var prop in cart) {
@@ -102,13 +104,12 @@ export const getters = {
         number += cart[prop].count;
       }
     }
-    return number
+    return number;
   },
   isAllChecked(state) {
     return Object.keys(state.cart).every(prop => state.cart[prop].checked);
   }
 };
-
 
 export const actions = {
   addCount({ commit, state }, goodsId) {
@@ -139,12 +140,12 @@ export const actions = {
     commit("toggleCheckAll", value);
     reqUpdateCart(state);
   },
-  async changeAuthStatus({ commit, state }, {authenticated,username}) {
+  async changeAuthStatus({ commit, state }, { authenticated, username }) {
     if (!authenticated) {
       commit("resetState");
       return;
     }
-    commit("changeAuthStatus", {authenticated,username});
+    commit("changeAuthStatus", { authenticated, username });
     const initCartResponse = await reqGetCart();
     if (initCartResponse.status === 0) {
       commit("initCart", initCartResponse.cart);

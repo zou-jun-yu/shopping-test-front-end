@@ -2,6 +2,7 @@ import Vue from 'vue';
 
 import MessageBox from './MessageBox';
 
+//消息弹出框通过函数来调用
 export default function(opts) {
     const defaults = {
         title: '',

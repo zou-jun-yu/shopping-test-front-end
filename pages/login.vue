@@ -14,7 +14,7 @@
 
 <script>
 import { reqLogin } from "@/api";
-import messageBox from "@/components/messageBox";
+// import messageBox from "@/components/messageBox";
 import { mapActions } from "vuex";
 import { Toast } from "mint-ui";
 export default {

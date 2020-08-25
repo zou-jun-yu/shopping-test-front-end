@@ -16,6 +16,7 @@
 </template>
 
 <script>
+//主页三级分类推荐形成的图标列表
 export default {
   name: "IconList",
   props: {

@@ -24,6 +24,7 @@
 </template>
 
 <script>
+//精选好货或当季流行展示区做成一个组件
 export default {
   name: "RecommendList",
   props: {

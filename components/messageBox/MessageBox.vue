@@ -10,6 +10,7 @@
 </template>
 
 <script>
+//消息弹出框
 export default {
   name: "MessageBox"
 };

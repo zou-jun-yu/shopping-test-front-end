@@ -37,7 +37,7 @@
         <input type="checkbox" id="check-all" v-model="isCheckAllItems" />
         <label for="check-all">全选</label>
         <span>合计：</span>
-        <strong class="total-price">￥{{ totlePrice }}</strong>
+        <strong class="total-price">￥{{ totalPrice }}</strong>
         <button>去结算</button>
       </div>
       <p v-else>您的购物车空空如也~~~</p>
@@ -92,7 +92,7 @@ export default {
       cartGoodsItems: state => state.cart,
       authenticated: state => state.authenticated
     }),
-    ...mapGetters(["totlePrice", "isAllChecked"]),
+    ...mapGetters(["totalPrice", "isAllChecked"]),
     isCheckAllItems: {
       get() {
         return this.isAllChecked;

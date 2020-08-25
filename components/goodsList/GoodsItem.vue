@@ -16,6 +16,7 @@
 </template>
 
 <script>
+//商品列表中的某一个商品展示
 export default {
   name: "GoodsItem",
   props: {

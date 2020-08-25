@@ -1,7 +1,11 @@
 <template>
   <div class="goods-list">
     <Search />
-    <Orderbar :isAscending="isAscending" :sortField="sortField" @change-sort-field="rearrangement($event)" />
+    <Orderbar
+      :isAscending="isAscending"
+      :sortField="sortField"
+      @change-sort-field="rearrangement($event)"
+    />
     <ul
       v-infinite-scroll="loadMore"
       infinite-scroll-disabled="loading"
@@ -38,8 +42,7 @@ import axios from "axios";
 import Search from "@/components/Search";
 import GoodsItem from "@/components/goodsList/GoodsItem";
 import Orderbar from "@/components/goodsList/Orderbar";
-import { reqGetGoodsList, reqSearchGoods } from "@/api";
-function getGoodsp(params, query) {}
+import { reqGetGoodsList } from "@/api";
 export default {
   name: "GoodsList",
   components: {
@@ -47,30 +50,25 @@ export default {
     Orderbar,
     Search
   },
+  //路由参数改变了，但仍然对应同一个组件时
   async beforeRouteUpdate(to, from, next) {
     console.log("beforeRouteUpdate");
-    let data;
-    if (from.params.categoryId !== to.params.categoryId) {
-      const { data: _data } = await reqGetGoodsList({
-        url: "/api2/shopping/getGoodsList",
-        categoryId: to.params.categoryId,
-        pageSize: 6,
-        pageNumber: 1,
-        sortField: this.sortField,
-        isAscending: this.isAscending
-      });
-      data = _data;
-    } else if (from.query.search !== to.query.search) {
-      const { data: _data } = await reqSearchGoods({
-        url: "/api2/shopping/searchGoods",
-        keyWord: to.query.search,
-        pageSize: 6,
-        pageNumber: 1,
-        sortField: this.sortField,
-        isAscending: this.isAscending
-      });
-      data = _data;
+    let dynamicAttr, dynamicValue;
+    if (from.query.search !== to.query.search) {
+      dynamicAttr = "keyWord";
+      dynamicValue = to.query.search;
+    } else if (from.params.categoryId !== to.params.categoryId) {
+      dynamicAttr = "categoryId";
+      dynamicValue = to.params.categoryId;
     }
+    const { data } = await reqGetGoodsList({
+      url: "/api2/shopping/getGoodsList",
+      [dynamicAttr]: dynamicValue,
+      pageSize: 6,
+      pageNumber: 1,
+      sortField: this.sortField,
+      isAscending: this.isAscending
+    });
     this.goodsList = data.goodsList;
     this.total = data.total;
     this.loading = false;
@@ -78,32 +76,24 @@ export default {
     next();
   },
   async asyncData({ params, query }) {
-    let data;
+    let dynamicAttr, dynamicValue;
     if (params.categoryId) {
-      const { data: _data } = await reqGetGoodsList({
-        url:
-          (process.server ? process.env.baseUrl : "") +
-          "/api2/shopping/getGoodsList",
-        categoryId: params.categoryId,
-        pageSize: 6,
-        pageNumber: 1,
-        sortField: "salesNumber",
-        isAscending: false
-      });
-      data = _data;
+      dynamicAttr = "categoryId";
+      dynamicValue = params.categoryId;
     } else {
-      const { data: _data } = await reqSearchGoods({
-        url:
-          (process.server ? process.env.baseUrl : "") +
-          "/api2/shopping/searchGoods",
-        keyWord: query.search,
-        pageSize: 6,
-        pageNumber: 1,
-        sortField: "salesNumber",
-        isAscending: false
-      });
-      data = _data;
+      dynamicAttr = "keyWord";
+      dynamicValue = query.search;
     }
+    const { data } = await reqGetGoodsList({
+      url:
+        (process.server ? process.env.baseUrl : "") +
+        "/api2/shopping/getGoodsList",
+      [dynamicAttr]: dynamicValue,
+      pageSize: 6,
+      pageNumber: 1,
+      sortField: "salesNumber",
+      isAscending: false
+    });
     return {
       goodsList: data.goodsList,
       loading: false,
@@ -121,26 +111,22 @@ export default {
       }
       this.loading = true;
       this.pageNumber++;
-      let result;
+      let dynamicAttr, dynamicValue;
       if (this.$route.params.categoryId) {
-        result = await reqGetGoodsList({
-          url: "/api2/shopping/getGoodsList",
-          categoryId: this.$route.params.categoryId,
-          pageSize: 6,
-          pageNumber: this.pageNumber,
-          sortField: this.sortField,
-          isAscending: this.isAscending
-        });
+        dynamicAttr = "categoryId";
+        dynamicValue = this.$route.params.categoryId;
       } else {
-        result = await reqSearchGoods({
-          url: "/api2/shopping/searchGoods",
-          keyWord: this.$route.query.search,
-          pageSize: 6,
-          pageNumber: this.pageNumber,
-          sortField: this.sortField,
-          isAscending: this.isAscending
-        });
+        dynamicAttr = "keyWord";
+        dynamicValue = this.$route.query.search;
       }
+      const result = await reqGetGoodsList({
+        url: "/api2/shopping/getGoodsList",
+        [dynamicAttr]: dynamicValue,
+        pageSize: 6,
+        pageNumber: this.pageNumber,
+        sortField: this.sortField,
+        isAscending: this.isAscending
+      });
       this.goodsList = [...this.goodsList, ...result.data.goodsList];
       this.loading = false;
       this.total = result.data.total;
@@ -153,30 +139,24 @@ export default {
         this.sortField = sortField;
         this.isAscending = false;
       }
-      let result;
+      let dynamicAttr, dynamicValue;
       if (this.$route.params.categoryId) {
-        result = await reqGetGoodsList({
-          url:
-            (process.server ? process.env.baseUrl : "") +
-            "/api2/shopping/getGoodsList",
-          categoryId: this.$route.params.categoryId,
-          pageSize: 6,
-          pageNumber: 1,
-          sortField: this.sortField,
-          isAscending: this.isAscending
-        });
+        dynamicAttr = "categoryId";
+        dynamicValue = this.$route.params.categoryId;
       } else {
-        result = await reqSearchGoods({
-          url:
-            (process.server ? process.env.baseUrl : "") +
-            "/api2/shopping/searchGoods",
-          keyWord: this.$route.query.search,
-          pageSize: 6,
-          pageNumber: 1,
-          sortField: this.sortField,
-          isAscending: this.isAscending
-        });
+        dynamicAttr = "keyWord";
+        dynamicValue = this.$route.query.search;
       }
+      const result = await reqGetGoodsList({
+        url:
+          (process.server ? process.env.baseUrl : "") +
+          "/api2/shopping/getGoodsList",
+        [dynamicAttr]: dynamicValue,
+        pageSize: 6,
+        pageNumber: 1,
+        sortField: this.sortField,
+        isAscending: this.isAscending
+      });
       this.goodsList = result.data.goodsList;
       this.total = result.data.total;
       this.loading = false;

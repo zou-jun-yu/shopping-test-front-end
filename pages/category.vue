@@ -4,7 +4,7 @@
     <div>
       <Sidebar
         :level1Categories="level1Categories"
-        @mainCategoryChange="mainCategoryChange"
+        @level1CategoryChange="level1CategoryChange"
       />
       <Content :level2Categories="level2Categories" />
     </div>
@@ -35,7 +35,7 @@ export default {
     };
   },
   methods: {
-    async mainCategoryChange(selectedIndex) {
+    async level1CategoryChange(selectedIndex) {
       const level2CategoriesResponse = await reqGetCategoriesLevel2Andlevel3({
         url: "/api2/shopping/getSubCategoriesLevel2AndLevel3",
         parentId: this.level1Categories[selectedIndex]._id

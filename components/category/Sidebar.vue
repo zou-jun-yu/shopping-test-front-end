@@ -1,10 +1,18 @@
 <template>
   <ul>
-    <li v-for="(category,index) in level1Categories" :key="category._id" @click="selectMainCategory(index)" :class="{active:index===selectedIndex}">{{category.categoryName}}</li>
+    <li
+      v-for="(category, index) in level1Categories"
+      :key="category._id"
+      @click="selectLevel1Category(index)"
+      :class="{ active: index === selectedIndex }"
+    >
+      {{ category.categoryName }}
+    </li>
   </ul>
 </template>
 
 <script>
+//分类页面的左侧一级分类
 import axios from "axios";
 export default {
   name: "Sidebar",
@@ -14,15 +22,15 @@ export default {
       required: true
     }
   },
-  data(){
+  data() {
     return {
-      selectedIndex:0
-    }
+      selectedIndex: 0
+    };
   },
-  methods:{
-    selectMainCategory(index){
-      this.selectedIndex=index;
-      this.$emit("mainCategoryChange",this.selectedIndex);
+  methods: {
+    selectLevel1Category(index) {
+      this.selectedIndex = index;
+      this.$emit("level1CategoryChange", this.selectedIndex);
     }
   }
 };
@@ -35,7 +43,7 @@ ul {
   width: 100px;
   padding-left: 10px;
   background-color: #f6f6f6;
-  .active{
+  .active {
     background-color: #fff;
   }
   li {

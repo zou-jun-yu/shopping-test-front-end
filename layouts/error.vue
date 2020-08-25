@@ -7,8 +7,10 @@
 </template>
 
 <script>
+
+//错误页面
 export default {
   props: ["error"],
-  layout: "detailTemplate" 
+  layout: "detailTemplate",
 };
 </script>
