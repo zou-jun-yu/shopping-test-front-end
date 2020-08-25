@@ -55,6 +55,7 @@ export default {
       font-size: 14px;
       img {
         width: 100%;
+        height: 170px;
       }
       .goodsName {
         display: -webkit-box;
