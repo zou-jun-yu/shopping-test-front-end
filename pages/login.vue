@@ -27,10 +27,12 @@ export default {
   },
   methods: {
     async submit() {
+      this.$nuxt.$loading.start();
       const result = await reqLogin({
         username: this.username,
         password: this.password
       });
+      this.$nuxt.$loading.finish();
       Toast(result.msg);
       if (result.status === 0) {
         // messageBox({
