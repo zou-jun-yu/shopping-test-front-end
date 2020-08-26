@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>京猫商城</h1>
+    <h1>南海龙宫商城</h1>
     <span v-if="authenticated" @click="logout">退出</span>
     <span v-else @click="$router.push('/login')">登录</span>
   </header>

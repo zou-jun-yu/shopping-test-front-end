@@ -40,6 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 .todaySales {
+  padding: 6px;
   h3 {
     text-align: center;
   }
@@ -48,8 +49,8 @@ export default {
     flex-wrap: wrap;
     justify-content: space-evenly;
     li {
-      margin-top: 7px;
-      width: 45%;
+      margin: 5px;
+      width: 170px;
       height: 250px;
       background-color: #fff;
       font-size: 14px;

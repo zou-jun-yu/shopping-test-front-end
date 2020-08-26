@@ -30,21 +30,15 @@ export default {
 
 <style lang="scss" scoped>
 .icon-list {
-  width: 100%;
-  overflow-x: auto;
-  margin-top: 6px;
+  margin: 6px;
   background-color: #fff;
   ul {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    height: 200px;
     justify-content: space-evenly;
     li {
-      display: flex;
-      flex-direction: column;
       text-align: center;
-      margin: 0 10px;
+      margin: 10px;
       img {
         width: 50px;
         height: 50px;

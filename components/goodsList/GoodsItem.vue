@@ -49,6 +49,10 @@ export default {
     font-size: 14px;
     .desc {
       line-height: 30px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
     }
   }
 }

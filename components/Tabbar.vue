@@ -9,8 +9,11 @@
       <span>分类</span>
     </nuxt-link>
     <nuxt-link to="/cart" tag="li" active-class="active">
-      <i class="iconfont icon-Cart"></i>
-      <em v-if="authenticated&&totalGoodsSelected">{{ totalGoodsSelected }}</em>
+      <i class="iconfont icon-Cart">
+        <em v-if="authenticated && totalGoodsSelected">{{
+          totalGoodsSelected
+        }}</em>
+      </i>
       <span>购物车</span>
     </nuxt-link>
     <nuxt-link to="/center" tag="li" active-class="active">
@@ -39,25 +42,27 @@ export default {
   justify-content: space-around;
   padding: 5px;
   height: 55px;
-  text-align: center;
   background-color: #00a2e8;
   li {
     flex-grow: 1;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+    text-align: center;
     &.active {
       color: white;
     }
     .iconfont {
+      margin: auto;
       font-size: 20px;
+      width: 20px;
     }
-    &:nth-of-type(3) {
+    .icon-Cart {
       position: relative;
       em {
         position: absolute;
         font-style: normal;
-        right: 28px;
+        right: -12px;
         top: -3px;
         border-radius: 6px;
         font-size: 6px;

@@ -125,6 +125,7 @@ export default {
       text-align: center;
       line-height: 40px;
       flex: none;
+      color: purple;
     }
     .shppping-list {
       flex-grow: 1;
