@@ -45,7 +45,13 @@
         <span v-if="show" class="dot"></span>
       </transition>
     </div>
-    <div v-else><span>请先</span><nuxt-link to="/login">登录</nuxt-link></div>
+    <div v-else>
+      <span>请先</span
+      ><nuxt-link to="/login">登录</nuxt-link>&nbsp;/&nbsp;<nuxt-link
+        to="register"
+        >注册</nuxt-link
+      >
+    </div>
   </div>
 </template>
 

@@ -29,14 +29,14 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      { rel: "stylesheet", href: "/css/iconfont/iconfont.css" }
+      { rel: "stylesheet", href: "/front-end/css/iconfont/iconfont.css" }
     ],
     script: [
       {
         type: "application/javascript",
-        src: "/js/fastclick.js"
+        src: "/front-end/js/fastclick.js"
       },
-      { type: "application/javascript", src: "/js/initFastclick.js" }
+      { type: "application/javascript", src: "/front-end/js/initFastclick.js" }
     ]
   },
   /*
@@ -84,6 +84,7 @@ export default {
    */
   build: {},
   router: {
+    base: "/front-end",
     extendRoutes(router) {
       router.push({
         path: "/",

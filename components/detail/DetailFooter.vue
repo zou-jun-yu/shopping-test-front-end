@@ -43,11 +43,11 @@ export default {
       addTocart: "addTocart"
     }),
     addGoodsToCart() {
-      this.show = false;
       if (!this.authenticated) {
         this.$router.push("/login");
         return;
       }
+      this.show = false;
       this.addTocart(this.goodsDetail);
     },
     buyNow() {

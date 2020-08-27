@@ -52,7 +52,6 @@ export default {
   },
   //路由参数改变了，但仍然对应同一个组件时
   async beforeRouteUpdate(to, from, next) {
-    console.log("beforeRouteUpdate");
     let dynamicAttr, dynamicValue;
     if (from.query.search !== to.query.search) {
       dynamicAttr = "keyWord";

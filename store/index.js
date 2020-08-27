@@ -27,7 +27,7 @@ const reqUpdateCart = async state => {
 
 export const mutations = {
   addCount(state, goodsId) {
-    console.log(state, goodsId, state.cart);
+    // console.log(state, goodsId, state.cart);
     state.cart[goodsId].count++;
   },
   reduceCount(state, goodsId) {
