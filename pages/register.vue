@@ -8,13 +8,18 @@
         placeholder="请输入您的用户名"
         v-if="isRegisterPage"
       />
-      <input type="text" v-model="password" :placeholder="isRegisterPage?'请输入您的密码':'请您输入新密码'" />
       <input
         type="text"
-        v-model="verify"
-        class="verify"
-        placeholder="请输入您的验证码"
-      /><button @click.prevent="getVerify">获取验证码</button>
+        v-model="password"
+        :placeholder="isRegisterPage ? '请输入您的密码' : '请您输入新密码'"
+      />
+      <p class="verify">
+        <input
+          type="text"
+          v-model="verify"
+          placeholder="请输入您的验证码"
+        /><button @click.prevent="getVerify">获取验证码</button>
+      </p>
       <input type="submit" :value="isRegisterPage ? '注册' : '修改密码'" />
     </form>
     <div class="forget-register">
@@ -84,17 +89,22 @@ form {
     border-radius: 10px;
   }
   .verify {
-    display: inline-block;
-    width: 230px;
-    margin-left: 20px;
-  }
-  button {
-    position: relative;
-    width: 107px;
-    height: 60px;
-    background-color: #00a2e8;
-    border: none;
-    font-size: 16px;
+    display: flex;
+    width: 90%;
+    margin: 20px auto;
+    input {
+      margin: 0;
+      width: 70%;
+      padding: 0 20px;
+      font-size: 20px;
+    }
+    button {
+      width: 30%;
+      height: 60px;
+      background-color: #00a2e8;
+      border: none;
+      font-size: 16px;
+    }
   }
 }
 .forget-register {
