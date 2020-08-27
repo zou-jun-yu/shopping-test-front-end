@@ -78,6 +78,10 @@ export default {
       changeOrigin: true
     }
   },
+  server: {
+    port: 7000, // default: 3000
+    host: '0.0.0.0' // default: localhost
+  },
   /*
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
