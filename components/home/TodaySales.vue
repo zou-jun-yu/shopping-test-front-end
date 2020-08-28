@@ -50,7 +50,7 @@ export default {
     justify-content: space-evenly;
     li {
       margin: 5px;
-      width: 170px;
+      width: 160px;
       height: 250px;
       background-color: #fff;
       font-size: 14px;

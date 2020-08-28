@@ -28,7 +28,7 @@ export default {
       }
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/x-icon", href: "/front-end/favicon.ico" },
       { rel: "stylesheet", href: "/front-end/css/iconfont/iconfont.css" }
     ],
     script: [
@@ -88,7 +88,7 @@ export default {
    */
   build: {},
   router: {
-    base: "/front-end",
+    base: "/front-end/",
     extendRoutes(router) {
       router.push({
         path: "/",

@@ -35,17 +35,16 @@ export default {
   ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
     li {
       text-align: center;
-      margin: 10px;
+      margin: 8px;
       img {
         width: 50px;
         height: 50px;
         border-radius: 50%;
         border: 2px solid #dc38d5;
       }
-      h4{
+      h4 {
         font-size: 14px;
       }
     }
