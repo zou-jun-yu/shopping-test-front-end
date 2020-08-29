@@ -2,7 +2,7 @@
   <div id="templateDiv">
     <Header />
     <div class="middle">
-      <Nuxt />
+      <Nuxt keep-alive />
     </div>
     <Tabbar />
   </div>

@@ -40,8 +40,7 @@ export default {
 ul {
   flex: none;
   overflow: auto;
-  width: 100px;
-  padding-left: 10px;
+  width: 90px;
   background-color: #f6f6f6;
   .active {
     background-color: #fff;

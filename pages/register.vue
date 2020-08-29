@@ -9,7 +9,7 @@
         v-if="isRegisterPage"
       />
       <input
-        type="text"
+        type="password"
         v-model="password"
         :placeholder="isRegisterPage ? '请输入您的密码' : '请您输入新密码'"
       />
@@ -23,7 +23,7 @@
       <input type="submit" :value="isRegisterPage ? '注册' : '修改密码'" />
     </form>
     <div class="forget-register">
-      <a href="javascript:;">立即登录</a>
+      <a href="javascript:;" @click="$router.push('/login')">立即登录</a>
       <a href="javascript:;" @click="isRegisterPage = !isRegisterPage">{{
         isRegisterPage ? "忘记密码" : "立即注册"
       }}</a>
@@ -44,6 +44,12 @@ export default {
       verify: "",
       isRegisterPage: true
     };
+  },
+  created() {
+    const isRegisterPage = this.$route.query.isRegisterPage;
+    if (isRegisterPage === false) {
+      this.isRegisterPage = isRegisterPage;
+    }
   },
   methods: {
     async getVerify() {

@@ -1,13 +1,19 @@
 <template>
   <div>
     <form @submit.prevent="submit">
-      <input type="text" v-model="username" placeholder="账户名/Email" />
-      <input type="text" v-model="password" placeholder="请输入您的密码" />
+      <input type="text" v-model="username" placeholder="账户名" />
+      <input type="password" v-model="password" placeholder="请输入您的密码" />
       <input type="submit" value="登录" />
     </form>
     <div class="forget">
       <a href="javascript:;" @click="$router.push('/register')">立即注册</a>
-      <a href="javascript:;">忘记密码</a>
+      <a
+        href="javascript:;"
+        @click="
+          $router.push({ path: 'register', query: { isRegisterPage: false } })
+        "
+        >忘记密码</a
+      >
     </div>
   </div>
 </template>
