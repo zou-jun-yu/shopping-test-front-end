@@ -19,7 +19,7 @@ module.exports = {
       // key: `${process.env.HOME}/.ssh/your-privite.key`,
       user: "root",
       host: "47.115.157.0",
-      ref: "shopping-test-front-end/master",
+      ref: "origin/master",
       // ssh_options: "StrictHostKeyChecking=no",
       repo: "git@github.com:zou-uoz/shopping-test-front-end.git",
       path: "/root/shopping-test/shopping-test-front-end",
