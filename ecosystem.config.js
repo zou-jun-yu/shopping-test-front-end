@@ -31,7 +31,7 @@ module.exports = {
       // pre-deploy: git fetch --all //部署前执行
       // "pre-deploy-local": "",
       "post-deploy":
-        "npm install && pm2 reload ecosystem.config.js --env production",
+        "npm install && npm run build && pm2 reload ecosystem.config.js --env production"
       // "pre-setup": ""
     }
   }
