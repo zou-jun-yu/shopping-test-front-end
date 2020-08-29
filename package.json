@@ -3,15 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "export": "nuxt export",
-    "serve": "nuxt serve"
+    "dev": "cross-env NODE_ENV=development nuxt",
+    "build": "cross-env NODE_ENV=production nuxt build",
+    "start": "cross-env NODE_ENV=production nuxt start",
+    "export": "cross-env NODE_ENV=production nuxt export",
+    "serve": "cross-env NODE_ENV=production nuxt serve"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/proxy": "^2.0.0",
+    "cross-env": "^7.0.2",
     "mint-ui": "^2.2.13",
     "nuxt": "^2.13.0"
   },
