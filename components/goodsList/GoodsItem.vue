@@ -1,12 +1,15 @@
 <template>
-  <div class="goods-item" @click="$router.push('/detail/' + goodsDetail._id)">
+  <div class="goods-item">
     <slot name="checkbox"></slot>
     <img
       :src="$imagesDir + goodsDetail.goodsImages[0]"
       :alt="goodsDetail.goodsName"
+      @click="$router.push('/detail/' + goodsDetail._id)"
     />
     <div>
-      <p class="desc">{{ goodsDetail.goodsName }}</p>
+      <p class="desc" @click="$router.push('/detail/' + goodsDetail._id)">
+        {{ goodsDetail.goodsName }}
+      </p>
       <p>
         <slot name="price"></slot>
         <slot name="calculatePrice"></slot>
@@ -36,6 +39,7 @@ export default {
   border-bottom: 1px solid #e6e6e6;
   background-color: #fff;
   img {
+    margin-left: 5px;
     width: 100px;
     height: 100px;
   }
@@ -48,7 +52,7 @@ export default {
     line-height: 25px;
     font-size: 14px;
     .desc {
-      line-height: 30px;
+      line-height: 28px;
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;

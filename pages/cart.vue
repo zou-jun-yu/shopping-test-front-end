@@ -163,7 +163,12 @@ export default {
     input {
       border: 1px solid black;
     }
-    .now-price,
+    .now-price {
+      display: inline-block;
+      width: 60px;
+      color: red;
+      font-size: 18px;
+    }
     .total-price {
       display: inline-block;
       width: 75px;
