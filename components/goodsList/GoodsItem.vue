@@ -1,5 +1,5 @@
 <template>
-  <div class="goods-item">
+  <div class="goods-item" @click="$router.push('/detail/' + goodsDetail._id)">
     <slot name="checkbox"></slot>
     <img
       :src="$imagesDir + goodsDetail.goodsImages[0]"

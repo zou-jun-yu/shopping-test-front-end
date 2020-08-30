@@ -6,8 +6,7 @@
         <GoodsItem
           v-for="(cartGoodsItem, key) in cartGoodsItems"
           :key="key"
-          :goodsDetail="cartGoodsItem"
-          @click="$router.push('/detail/' + key)"
+          :goodsDetail="{ ...cartGoodsItem, _id: key }"
         >
           <template v-slot:checkbox>
             <input

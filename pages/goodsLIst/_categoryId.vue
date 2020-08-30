@@ -15,7 +15,6 @@
       <li
         v-for="goodsDetail in goodsList"
         :key="goodsDetail._id"
-        @click="$router.push('/detail/' + goodsDetail._id)"
       >
         <GoodsItem :goodsDetail="goodsDetail">
           <template v-slot:price>
