@@ -21,7 +21,7 @@
         >
       </div>
     </div>
-    <div v-else>正在登录中...</div>
+    <div v-else>Loading...</div>
   </div>
 </template>
 
