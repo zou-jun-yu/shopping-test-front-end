@@ -1,5 +1,6 @@
 import Vue from "vue";
 
+console.log(process.env.NODE_ENV)
 Vue.prototype.$imagesDir =
   process.env.NODE_ENV === "production"
     ? "http://47.115.157.0/images/"
