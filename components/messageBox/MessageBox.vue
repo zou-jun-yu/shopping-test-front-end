@@ -22,8 +22,8 @@ export default {
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  width: 200px;
-  height: 120px;
+  width: 220px;
+  height: 130px;
   border: 1px #ccc solid;
   background-color: #fff;
   text-align: center;

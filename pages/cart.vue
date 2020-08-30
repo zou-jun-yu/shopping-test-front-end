@@ -38,7 +38,7 @@
         <label for="check-all">全选</label>
         <span>合计：</span>
         <strong class="total-price">￥{{ totalPrice }}</strong>
-        <button>去结算</button>
+        <button @click.prevent="toPayFor">去结算</button>
       </div>
       <p v-else>您的购物车空空如也~~~</p>
       <transition name="bounce" @after-leave="afterLeave">
@@ -58,6 +58,7 @@
 <script>
 import axios from "axios";
 import { mapState, mapActions, mapGetters } from "vuex";
+import messageBox from "@/components/messageBox";
 import GoodsItem from "@/components/goodsList/GoodsItem";
 import { reqGetGoodsDetail } from "@/api";
 export default {
@@ -91,6 +92,12 @@ export default {
     },
     afterLeave(el) {
       this.show = true;
+    },
+    toPayFor() {
+      messageBox({
+        title: "抱歉，此网站仅用于测试，未实现支付功能(^_^)",
+        ok: "确认"
+      });
     }
   },
   computed: {

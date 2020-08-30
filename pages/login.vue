@@ -1,20 +1,27 @@
 <template>
   <div>
-    <form @submit.prevent="submit">
-      <input type="text" v-model="username" placeholder="账户名" />
-      <input type="password" v-model="password" placeholder="请输入您的密码" />
-      <input type="submit" value="登录" />
-    </form>
-    <div class="forget">
-      <a href="javascript:;" @click="$router.push('/register')">立即注册</a>
-      <a
-        href="javascript:;"
-        @click="
-          $router.push({ path: 'register', query: { isRegisterPage: false } })
-        "
-        >忘记密码</a
-      >
+    <div v-if="!loading">
+      <form @submit.prevent="submit">
+        <input type="text" v-model="username" placeholder="账户名" />
+        <input
+          type="password"
+          v-model="password"
+          placeholder="请输入您的密码"
+        />
+        <input type="submit" value="登录" />
+      </form>
+      <div class="forget">
+        <a href="javascript:;" @click="$router.push('/register')">立即注册</a>
+        <a
+          href="javascript:;"
+          @click="
+            $router.push({ path: 'register', query: { isRegisterPage: false } })
+          "
+          >忘记密码</a
+        >
+      </div>
     </div>
+    <div v-else>正在登录中...</div>
   </div>
 </template>
 
@@ -28,7 +35,8 @@ export default {
   data() {
     return {
       username: "",
-      password: ""
+      password: "",
+      loading: false
     };
   },
   methods: {
@@ -49,10 +57,12 @@ export default {
         //     this.$router.go(-1);
         //   }
         // });
-        this.changeAuthStatus({
+        this.loading = true;
+        await this.changeAuthStatus({
           authenticated: true,
           username: result.data.username
         });
+        this.loading = false;
         this.$router.go(-1);
       }
     },
