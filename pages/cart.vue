@@ -23,9 +23,10 @@
             </button>
             <input
               class="counter"
-              type="number"
+              type="text"
               :value="cartGoodsItem.count + ''"
               @change="setGoodsCount(key, $event)"
+              @keyup.enter="setGoodsCount(key, $event)"
             />
             <button class="step" @click="addGoodsCount(key)">
               +
@@ -70,9 +71,17 @@ export default {
   },
   methods: {
     setGoodsCount(cartGoodsItemId, event) {
+      let count = event.target.value * 1;
+      if (Number.isNaN(count)) {
+        event.target.value = "1";
+        count = 1;
+      }
+      if (count < 1) {
+        count = 1;
+      }
       this.$store.dispatch("setGoodsCount", {
         goodsId: cartGoodsItemId,
-        count: event.target.value * 1
+        count
       });
     },
     toggleCheck(cartGoodsItemId, event) {

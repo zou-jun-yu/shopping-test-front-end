@@ -38,9 +38,6 @@ export const mutations = {
     state.cart[goodsId].count--;
   },
   setGoodsCount(state, { goodsId, count }) {
-    if (count < 1) {
-      count = 1;
-    }
     state.cart[goodsId].count = count;
   },
   addTocart(state, goods) {
