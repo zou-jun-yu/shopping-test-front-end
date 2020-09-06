@@ -22,8 +22,8 @@ module.exports = {
       user: "root",
       host: "47.115.157.0",
       ref: "origin/master",
-      repo: "git@github.com:zou-uoz/shopping-test-front-end.git",
-      path: "/root/shopping-test/shopping-test-front-end",
+      repo: "git@github.com:zou-uoz/shopping-front-end.git",
+      path: "/root/shopping/shopping-front-end",
       "post-deploy":
         // "git pull && npm install && npm run build && pm2 reload ecosystem.config.js --env production"
         "git pull && npm run build && pm2 reload ecosystem.config.js --env production",

@@ -21,13 +21,16 @@
             <button class="step" @click="reduceCount(key)">
               -
             </button>
-            <input
-              class="counter"
-              type="text"
-              :value="cartGoodsItem.count + ''"
-              @change="setGoodsCount(key, $event)"
-              @keyup.enter="setGoodsCount(key, $event)"
-            />
+            <form
+              @submit.prevent="setGoodsCount(key, $event.target.children[0])"
+            >
+              <input
+                class="counter"
+                type="text"
+                :value="cartGoodsItem.count + ''"
+                @blur="setGoodsCount(key, $event.target)"
+              />
+            </form>
             <button class="step" @click="addGoodsCount(key)">
               +
             </button>
@@ -70,10 +73,10 @@ export default {
     };
   },
   methods: {
-    setGoodsCount(cartGoodsItemId, event) {
-      let count = event.target.value * 1;
+    setGoodsCount(cartGoodsItemId, input) {
+      let count = input.value * 1;
       if (Number.isNaN(count)) {
-        event.target.value = "1";
+        input.value = "1";
         count = 1;
       }
       if (count < 1) {
@@ -162,11 +165,14 @@ export default {
         position: relative;
         top: -3px;
       }
-      .counter {
-        position: relative;
-        top: -3px;
-        width: 50px;
-        text-align: center;
+      form {
+        display: inline-block;
+        .counter {
+          position: relative;
+          top: -3px;
+          width: 50px;
+          text-align: center;
+        }
       }
     }
     input {

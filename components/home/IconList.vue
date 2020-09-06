@@ -35,6 +35,7 @@ export default {
   ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
     li {
       text-align: center;
       margin: 8px;

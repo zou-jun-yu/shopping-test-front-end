@@ -1,1 +1,1 @@
-shopping-test-front-end
+shopping-front-end
