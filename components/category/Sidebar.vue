@@ -1,9 +1,9 @@
 <template>
   <ul>
     <li
-      v-for="(category, index) in level1Categories"
+      v-for="(category, index) in lv1Categories"
       :key="category._id"
-      @click="selectLevel1Category(index)"
+      @click="selectLv1Category(index)"
       :class="{ active: index === selectedIndex }"
     >
       {{ category.categoryName }}
@@ -17,7 +17,7 @@ import axios from "axios";
 export default {
   name: "Sidebar",
   props: {
-    level1Categories: {
+    lv1Categories: {
       type: Array,
       required: true
     }
@@ -28,9 +28,9 @@ export default {
     };
   },
   methods: {
-    selectLevel1Category(index) {
+    selectLv1Category(index) {
       this.selectedIndex = index;
-      this.$emit("level1CategoryChange", this.selectedIndex);
+      this.$emit("lv1CategoryChange", this.selectedIndex);
     }
   }
 };

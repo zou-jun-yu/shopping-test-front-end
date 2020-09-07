@@ -39,14 +39,14 @@ import Search from "@/components/Search";
 import IconList from "@/components/home/IconList";
 import RecommendList from "@/components/home/RecommendList";
 import TodaySales from "@/components/home/TodaySales";
-import { reqGetRandomGoods, reqGetRandomCategoriesLevel3 } from "~/api";
+import { reqGetRandomGoods, reqGetRandomLv3Categories } from "~/api";
 export default {
   name: "Home",
   async asyncData() {
-    const categoryPromise = reqGetRandomCategoriesLevel3({
+    const categoryPromise = reqGetRandomLv3Categories({
       url:
         (process.server ? process.env.baseUrl : "") +
-        "/api2/shopping/getRandomCategoriesLevel3",
+        "/api2/shopping/getRandomLv3Categories",
       categoryNumber: 10
     });
     const goodsPromise = reqGetRandomGoods({
@@ -55,7 +55,7 @@ export default {
         "/api2/shopping/getRandomGoods",
       goodsNumber: 40
     });
-    const categoriesLevel3Response = await categoryPromise;
+    const lv3CategoriesResponse = await categoryPromise;
     const goodsResponse = await goodsPromise;
     const goodsList = goodsResponse.data.goodsList;
     return {
@@ -63,7 +63,7 @@ export default {
       fashionData: goodsList.slice(10, 20),
       bannerData: goodsList.slice(20, 30),
       todaySalesData: goodsList.slice(30, 40),
-      iconData: categoriesLevel3Response.data.categories
+      iconData: lv3CategoriesResponse.data.categories
     };
   },
   components: {

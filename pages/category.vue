@@ -3,10 +3,10 @@
     <Search />
     <div>
       <Sidebar
-        :level1Categories="level1Categories"
-        @level1CategoryChange="level1CategoryChange"
+        :lv1Categories="lv1Categories"
+        @lv1CategoryChange="lv1CategoryChange"
       />
-      <Content :level2Categories="level2Categories" />
+      <Content :lv2Categories="lv2Categories" />
     </div>
   </div>
 </template>
@@ -16,31 +16,31 @@ import axios from "axios";
 import Search from "@/components/Search";
 import Sidebar from "@/components/category/Sidebar";
 import Content from "@/components/category/Content";
-import { reqGetCategoriesLevel1, reqGetCategoriesLevel2Andlevel3 } from "@/api";
+import { reqGetCategoriesLv1, reqGetCategoriesLv2Andlv3 } from "@/api";
 export default {
   name: "Category",
   async asyncData() {
-    const level1CategoriesResponse = await reqGetCategoriesLevel1({
+    const lv1CategoriesResponse = await reqGetCategoriesLv1({
       url: (process.server ? process.env.baseUrl : "") + "/api2/shopping/getSubCategories"
     });
-    const level2CategoriesResponse = await reqGetCategoriesLevel2Andlevel3({
+    const lv2CategoriesResponse = await reqGetCategoriesLv2Andlv3({
       url: (process.server
         ? process.env.baseUrl
-        : "") + "/api2/shopping/getSubCategoriesLevel2AndLevel3",
-      parentId: level1CategoriesResponse.data.subCategories[0]._id
+        : "") + "/api2/shopping/getDescendantCategories",
+      parentId: lv1CategoriesResponse.data.subCategories[0]._id
     });
     return {
-      level1Categories: level1CategoriesResponse.data.subCategories,
-      level2Categories: level2CategoriesResponse.data.categoriesLevel2
+      lv1Categories: lv1CategoriesResponse.data.subCategories,
+      lv2Categories: lv2CategoriesResponse.data.lv2Categories
     };
   },
   methods: {
-    async level1CategoryChange(selectedIndex) {
-      const level2CategoriesResponse = await reqGetCategoriesLevel2Andlevel3({
-        url: "/api2/shopping/getSubCategoriesLevel2AndLevel3",
-        parentId: this.level1Categories[selectedIndex]._id
+    async lv1CategoryChange(selectedIndex) {
+      const lv2CategoriesResponse = await reqGetCategoriesLv2Andlv3({
+        url: "/api2/shopping/getDescendantCategories",
+        parentId: this.lv1Categories[selectedIndex]._id
       });
-      this.level2Categories = level2CategoriesResponse.data.categoriesLevel2;
+      this.lv2Categories = lv2CategoriesResponse.data.lv2Categories;
     }
   },
   components: {

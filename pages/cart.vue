@@ -186,7 +186,7 @@ export default {
     }
     .total-price {
       display: inline-block;
-      width: 75px;
+      width: 80px;
       color: red;
       font-size: 20px;
     }

@@ -1,20 +1,20 @@
 <template>
-  <div class="content">
-    <dl v-for="level2Category in level2Categories" :key="level2Category._id">
+  <div class="content" ref="content">
+    <dl v-for="lv2Category in lv2Categories" :key="lv2Category._id">
       <dt>
-        <h3>{{ level2Category.categoryName }}</h3>
+        <h3>{{ lv2Category.categoryName }}</h3>
       </dt>
       <div>
         <dd
-          v-for="level3Category in level2Category.children"
-          :key="level3Category._id"
-          @click="$router.push('/goodsList/' + level3Category._id)"
+          v-for="lv3Category in lv2Category.children"
+          :key="lv3Category._id"
+          @click="$router.push('/goodsList/' + lv3Category._id)"
         >
           <img
-            :src="$imagesDir + level3Category.categoryImage"
-            :alt="level3Category.categoryName"
+            :src="$imagesDir + lv3Category.categoryImage"
+            :alt="lv3Category.categoryName"
           />
-          <h4>{{ level3Category.categoryName }}</h4>
+          <h4>{{ lv3Category.categoryName }}</h4>
         </dd>
       </div>
     </dl>
@@ -26,10 +26,13 @@
 export default {
   name: "Content",
   props: {
-    level2Categories: {
+    lv2Categories: {
       type: Array,
       required: true
     }
+  },
+  updated() {
+    this.$refs.content.scrollTop = 0;
   }
 };
 </script>

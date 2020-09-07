@@ -32,13 +32,17 @@ export default {
 .icon-list {
   margin: 6px;
   background-color: #fff;
+  text-align: center;
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: inline-block;
+    // text-align: left;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-evenly;
     li {
       text-align: center;
       margin: 8px;
+      display: inline-block;
       img {
         width: 50px;
         height: 50px;

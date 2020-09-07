@@ -53,6 +53,7 @@ export default {
   },
   methods: {
     async getVerify() {
+      Toast("正在发送验证码...");
       const result = await reqGetVerify(this.email);
       Toast(result.msg);
     },

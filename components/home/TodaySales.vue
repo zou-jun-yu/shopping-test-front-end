@@ -41,14 +41,19 @@ export default {
 <style lang="scss" scoped>
 .todaySales {
   padding: 6px;
-  h3 {
-    text-align: center;
-  }
+  text-align: center;
+  // h3 {
+  //   text-align: center;
+  // }
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: inline-block;
+    // text-align: left;
+    width: auto;
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: space-evenly;
     li {
+      display: inline-block;
       margin: 5px;
       width: 160px;
       height: 250px;
