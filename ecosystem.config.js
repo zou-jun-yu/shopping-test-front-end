@@ -25,8 +25,8 @@ module.exports = {
       repo: "git@github.com:zou-uoz/shopping-front-end.git",
       path: "/root/shopping/shopping-front-end",
       "post-deploy":
-        // "git pull && npm install && npm run build && pm2 reload ecosystem.config.js --env production"
-        "git pull && npm run build && pm2 reload ecosystem.config.js --env production",
+        "git pull && npm install && npm run build && pm2 reload ecosystem.config.js --env production",
+        // "git pull && npm run build && pm2 reload ecosystem.config.js --env production",
       env: {
         NODE_ENV: "production"
       }
