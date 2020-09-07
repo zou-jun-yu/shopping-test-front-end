@@ -68,18 +68,19 @@ export const mutations = {
       cart[prop].checked = value;
     }
   },
-  initCart(state, cart) {
-    state.cart = cart;
-  },
-  changeAuthStatus(state, { authenticated, username }) {
+  // initCart(state, cart) {
+  //   state.cart = cart;
+  // },
+  changeAuthStatus(state, { authenticated, username, cart }) {
     state.authenticated = authenticated;
     state.username = username;
-  },
-  resetState(state) {
-    state.cart = {};
-    state.authenticated = false;
-    state.username = "";
+    state.cart = cart;
   }
+  // resetState(state) {
+  //   state.cart = {};
+  //   state.authenticated = false;
+  //   state.username = "";
+  // }
 };
 
 export const getters = {
@@ -139,13 +140,16 @@ export const actions = {
   },
   async changeAuthStatus({ commit, state }, { authenticated, username }) {
     if (!authenticated) {
-      commit("resetState");
+      commit("changeAuthStatus", { authenticated: false, username, cart: {} });
       return;
     }
-    commit("changeAuthStatus", { authenticated, username });
     const initCartResponse = await reqGetCart();
     if (initCartResponse.status === 0) {
-      commit("initCart", initCartResponse.cart);
+      commit("changeAuthStatus", {
+        authenticated: true,
+        username,
+        cart: initCartResponse.cart
+      });
     } else {
       console.log(initCartResponse.msg);
     }

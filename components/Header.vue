@@ -8,7 +8,7 @@
 
 <script>
 //页面头部
-import { mapState, mapMutations } from "vuex";
+import { mapState, mapActions } from "vuex";
 import { Toast } from "mint-ui";
 import { reqLogout } from "@/api";
 export default {
@@ -25,7 +25,7 @@ export default {
         this.$router.push("/login");
       }
     },
-    ...mapMutations(["changeAuthStatus"])
+    ...mapActions(["changeAuthStatus"])
   }
 };
 </script>

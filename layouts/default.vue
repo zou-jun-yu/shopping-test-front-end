@@ -34,7 +34,10 @@ export default {
         username: result.data.username
       });
     } else {
-      this.resetState();
+      this.changeAuthStatus({
+        authenticated: false,
+        username: ""
+      });
     }
   },
   methods: {
