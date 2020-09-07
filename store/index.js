@@ -144,14 +144,11 @@ export const actions = {
       return;
     }
     const initCartResponse = await reqGetCart();
-    if (initCartResponse.status === 0) {
-      commit("changeAuthStatus", {
-        authenticated: true,
-        username,
-        cart: initCartResponse.cart
-      });
-    } else {
-      console.log(initCartResponse.msg);
-    }
+    console.log(initCartResponse.msg);
+    commit("changeAuthStatus", {
+      authenticated: true,
+      username,
+      cart: initCartResponse.cart || {}
+    });
   }
 };
