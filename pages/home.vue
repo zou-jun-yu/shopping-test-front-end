@@ -53,16 +53,16 @@ export default {
       url:
         (process.server ? process.env.baseUrl : "") +
         "/api2/shopping/getRandomGoods",
-      goodsNumber: 40
+      goodsNumber: 25
     });
     const lv3CategoriesResponse = await categoryPromise;
     const goodsResponse = await goodsPromise;
     const goodsList = goodsResponse.data.goodsList;
     return {
-      wellGoodsData: goodsList.slice(0, 10),
-      fashionData: goodsList.slice(10, 20),
-      bannerData: goodsList.slice(20, 30),
-      todaySalesData: goodsList.slice(30, 40),
+      wellGoodsData: goodsList.slice(0, 7),
+      fashionData: goodsList.slice(7, 14),
+      bannerData: goodsList.slice(14, 19),
+      todaySalesData: goodsList.slice(19, 25),
       iconData: lv3CategoriesResponse.data.categories
     };
   },
@@ -86,9 +86,10 @@ export default {
     flex-grow: 1;
     overflow: auto;
     margin-top: 3px;
+    text-align: center;
   }
   footer {
-    text-align: center;
+    // text-align: center;
     color: #d3d4d4;
     font-size: 14px;
     p {

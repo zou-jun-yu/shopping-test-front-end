@@ -41,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 .todaySales {
   padding: 6px;
-  text-align: center;
+  // text-align: center;
   // h3 {
   //   text-align: center;
   // }
@@ -69,6 +69,7 @@ export default {
         -webkit-line-clamp: 2;
         overflow: hidden;
         padding: 0 5px;
+        text-align: left;
       }
       .footer {
         display: flex;

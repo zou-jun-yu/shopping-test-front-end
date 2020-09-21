@@ -32,7 +32,7 @@ export default {
 .icon-list {
   margin: 6px;
   background-color: #fff;
-  text-align: center;
+  // text-align: center;
   ul {
     display: inline-block;
     // text-align: left;
@@ -40,7 +40,7 @@ export default {
     // flex-wrap: wrap;
     // justify-content: space-evenly;
     li {
-      text-align: center;
+      // text-align: center;
       margin: 8px;
       display: inline-block;
       img {
